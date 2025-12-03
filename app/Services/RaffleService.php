@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\RaffleRepository;
 use Illuminate\Support\Arr;
+use Log;
 
 class RaffleService
 {
@@ -55,24 +56,36 @@ class RaffleService
 	 */
 	public function startDrawing($configKey)
 	{
-		$winnerIds = [];
-		$config = $this->getPrizeSetting($configKey);
-		
-		#1.取相關設定
-		$prizeNo 	= $config['key'];
-		$poolTable 	= $config['pool'];
-		$quantity 	= $config['quantity']; #名額
-		
-		#2.取抽獎人數(Id即可)
-		$employees = $this->_repository->getValidEmployeesId($poolTable);
-		
-		#3.隨取抽獎
-		$winnerIds = $this->_drawingWinner($employees, $quantity);
-		
-		#4.Update DB
-		$this->_repository->setWinners($poolTable, $winnerIds, $prizeNo);
-		
-		return $winnerIds;
+		try
+		{
+			$winnerIds = [];
+			$winnerInfo = [];
+			$config = $this->getPrizeSetting($configKey);
+			
+			#1.取相關設定
+			$prizeNo 	= $config['key'];
+			$poolTable 	= $config['pool'];
+			$quantity 	= $config['quantity']; #名額
+			
+			#2.取抽獎人數(Id即可)
+			$employees = $this->_repository->getValidEmployeesId($poolTable);
+			
+			#3.隨取抽獎
+			list($employees, $winnerIds) = $this->_drawingWinner($employees, $quantity);
+			
+			#4.Update DB
+			$this->_repository->setWinners($poolTable, $winnerIds, $prizeNo);
+			
+			#5.Get Winner Info
+			$winnerInfo = $this->_repository->getWinnerInfo($poolTable, $prizeNo);
+			
+			return $winnerInfo;
+		}
+		catch(Exception $e)
+		{
+			Log::error($e->getMessage(), [ __class__, __function__]);
+			return FALSE;
+		}
 	}
 	
 	private function _drawingWinner($employees, $quantity)
@@ -94,7 +107,8 @@ class RaffleService
 			$employees = Arr::except($employees, $winnerKey);
 		}
 		
-		return $winnerIds;
+		#這兩個都要回傳更新
+		return [$employees, $winnerIds];
 	}
 	
 	private function _shuffleEmployees($employees)

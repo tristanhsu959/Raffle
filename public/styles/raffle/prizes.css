@@ -21,7 +21,7 @@
 	}
 	.seniority {
 		position: relative;
-		color: #aa00ff;
+		/* color: #aa00ff; */
 		margin-right: 3rem;
 		
 		&:last-child {
@@ -37,23 +37,35 @@
 			/* letter-spacing: normal; */
 			/* color: #607d8b; */
 		/* } */
-		&.senior:before {
-			content: '5年年資';
-			font-size: .75rem;
-			letter-spacing: normal;
-			color: #212121;
-			position: absolute;
-			top: .8rem;
-			right: -3ch;
+		&.senior {
+			color: #aa00ff;
+			&:before {
+				content: '5年年資';
+				font-size: .75rem;
+				letter-spacing: normal;
+				color: #212121;
+				position: absolute;
+				top: .8rem;
+				right: -3ch;
+			}
+			&:after {
+				background-color: #aa00ff;
+			}
 		}
-		&.junior:before {
-			content: '1年年資';
-			font-size: .75rem;
-			letter-spacing: normal;
-			color: #212121;
-			position: absolute;
-			top: .8rem;
-			right: -2.5ch;
+		&.junior {
+			color: #03a9f4;
+			&:before {
+				content: '1年年資';
+				font-size: .75rem;
+				letter-spacing: normal;
+				color: #212121;
+				position: absolute;
+				top: .8rem;
+				right: -2.5ch;
+			}
+			&:after {
+				background-color: #03a9f4;
+			}
 		}
 		&:after {
 			content: '人';
@@ -61,7 +73,7 @@
 			letter-spacing: normal;
 			padding: .125rem .25rem;
 			border-radius: 50%;
-			background-color: #f44336;
+			/* background-color: #f44336; */
 			color: #fff;
 		}
 	}

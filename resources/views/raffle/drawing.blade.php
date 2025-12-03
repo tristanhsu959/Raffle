@@ -6,6 +6,12 @@
 
 @push('scripts')
     <script src="{{ asset('scripts/raffle/drawing.js') }}" defer></script>
+	<script type="text/template" data-template="userProfile">
+		<div class="user-card">
+			<h2>Welcome, <span class="username"></span>!</h2>
+			<p>Email: <span class="user-email"></span></p>
+		</div>
+	</script>
 @endpush
 
 @section('actionbar-left')
@@ -34,7 +40,7 @@
 <div class="content-wrapper">
 	<ul class="winner-list">
 		<li class="winner">
-			<div class="department">紅樹林＋各區業務辦公室＋高雄分公司</div>
+			<div class="department">紅樹林 各區業務辦公室 高雄分公司</div>
 			<div class="info">
 				<span class="id-num">T20251010</span>
 				<span class="name">路人甲</span>

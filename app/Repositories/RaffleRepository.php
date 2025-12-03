@@ -41,7 +41,38 @@ class RaffleRepository extends Repository
 		return $result->pluck('Id')->toArray();
 	}
 	
+	/* 更新Winner data
+	 * @params string
+	 * @params array
+	 * @params string
+	 * @return array
+	 */
+	public function setWinners($poolTable, $winnerIds, $prizeNo)
+	{
+		#build update data
+		$data = ['PrizeNo' => $prizeNo, 'UpdateAt' => now()->format('Y-m-d H:i:s')];
+		
+		$db = $this->connectRaffle($poolTable);
+		$db->whereIn('Id', $winnerIds)
+			->update($data);
+		
+		return TRUE;
+	}
 	
+	/* 取Winner data
+	 * @params string
+	 * @params string
+	 * @return array
+	 */
+	public function getWinnerInfo($poolTable, $prizeNo)
+	{
+		$db = $this->connectRaffle($poolTable);
+		$result = $db->select('EmployeeNo', 'Name', 'Department')
+					->where('PrizeNo', '=', $prizeNo)
+					->get()->toArray();
+		
+		return $result;
+	}
 	
 	/** ====================================
 	/* For Testing

@@ -6,6 +6,15 @@ $(function(){
 		$(this).prop('disabled', true);
 		startDrawinig();
 	});
+	
+	let templateHtml = $('script[data-template="userProfile"]').html();
+	let userData = { name: "John Doe", email: "john.doe@example.com" };
+
+	let $template = $(templateHtml); // Create a jQuery object from the template
+	$template.find('.username').text(userData.name);
+	$template.find('.user-email').text(userData.email);
+
+	$('body').append($template);
 });
 
 function startDrawinig()

@@ -49,7 +49,8 @@ class RaffleController extends Controller
 		{
 			$configKey = $request->input('configKey');
 			$response['data'] = $this->_service->startDrawing($configKey);
-			dd($response);
+			$response['status'] = TRUE;
+			
 			return view('raffle.drawing', $response);
 		}
 		else
