@@ -15,6 +15,7 @@ Route::get('/getWinnerList', [HomeController::class, 'getWinnerList']);
 Route::get('/prizes', [RaffleController::class, 'prizes']);
 #抽獎預備
 Route::get('/drawing/{configKey}', [RaffleController::class, 'prepareDrawing'])->name('prepareDrawing');
+Route::post('/drawing', [RaffleController::class, 'startDrawing'])->name('startDrawing');
 
 Route::get('/setting', [SettingController::class, 'index']);
 Route::get('/setting/start', [SettingController::class, 'start']);

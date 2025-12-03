@@ -44,35 +44,37 @@ class RaffleService
 	{
 		$config = $this->getPrizes();
 		$setting = data_get($config, $configKey, []);
+		$setting['configKey'] = $configKey;
+		
 		return $setting;
 	}
 	
-	// /* 要考慮一次抽多人的狀況
-	 // * $awardCount	int	default = 1
-	 // */
-	// public function execute($awardCount = 10)
-	// {
-		// $winnerList = [];
+	/* 要考慮一次抽多人的狀況
+	 * $awardCount	int	default = 1
+	 */
+	public function executeDrawing($awardCount = 10)
+	{
+		$winnerList = [];
 		
-		// #Step1 最後是固定人數(怎麼記錄排除已得獎者???)
-		// $employees = $this->getSignInEmployees();
+		#Step1 最後是固定人數(怎麼記錄排除已得獎者???)
+		$employees = $this->getSignInEmployees();
 		
-		// for($i = 0; $i < $awardCount; $i++)
-		// {
-			// #Step2
-			// $employees = $this->shuffleData($employees);
+		for($i = 0; $i < $awardCount; $i++)
+		{
+			#Step2
+			$employees = $this->shuffleData($employees);
 			
-			// #Step3
-			// $winnerKey = $this->getWinnerKey($employees);
+			#Step3
+			$winnerKey = $this->getWinnerKey($employees);
 			
-			// $winnerList[] = $employees[$winnerKey];
+			$winnerList[] = $employees[$winnerKey];
 			
-			// #remove winner
-			// $employees = Arr::except($employees, $winnerKey);
-		// }
+			#remove winner
+			$employees = Arr::except($employees, $winnerKey);
+		}
 		
-		// return $winnerList;
-	// }
+		return $winnerList;
+	}
 	
 	// /* Lottery Step Function */
 	// private function getSignInEmployees()

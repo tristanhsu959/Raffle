@@ -17,7 +17,7 @@
 	}
 }
 
-.quota {
+.quantity {
 	position: absolute;
 	top: calc(64px + 2rem);
 	left: 1rem;
@@ -57,7 +57,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	
-	&.trigger {
+	&.completed {
 		display: none;
 	}
 	
@@ -71,6 +71,7 @@
 		font-size: 2rem;
 		font-weight: bold;
 		background-color: #00e5ff;
+		border-radius: 10rem; 
 		
 		&:hover {
 			transform: scale(1.5);

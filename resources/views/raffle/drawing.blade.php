@@ -5,7 +5,7 @@
 @endpush
 
 @push('scripts')
-    <script src=""></script>
+    <script src="{{ asset('scripts/raffle/drawing.js') }}" defer></script>
 @endpush
 
 @section('actionbar-left')
@@ -22,10 +22,15 @@
 
 
 @section('content')
-<div class="quota">{{ $prizeSetting['quantity'] }}</div>
-<div class="start-btn trigger1">
-	<a class="btn loader1">開始抽獎</a>
-</div>
+<div class="quantity">{{ $prizeSetting['quantity'] }}</div>
+
+<form action="{{ url('drawing') }}" method="post" id="startDrawingForm">
+	@csrf
+	<input type="hidden" name="configKey" value="{{ $prizeSetting['configKey'] }}" />
+	<div class="start-btn">
+		<button class="btn btn-start">開始抽獎</button>
+	</div>
+</form>
 	
 <div class="content-wrapper">
 	<ul class="winner-list">
