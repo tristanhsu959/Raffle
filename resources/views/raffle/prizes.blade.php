@@ -9,18 +9,22 @@
 @endpush
 
 @section('actionbar-left')
-	<a href="{{ url('/home') }}" class="btn" alt="Back"><span class="material-symbols-outlined">arrow_back</span></a>
+	<a href="{{ url('home') }}" class="btn" alt="Back"><span class="material-symbols-outlined">arrow_back</span></a>
 @endsection
 
 @section('content')
-<div class="signin">{{-- $signInCount --}}</div>
+<div class="register">
+	<h6>抽獎人數</h6>
+	<div class="seniority"><span>5年年資</span>{{ $seniorEmployees }}</div>
+	<div class="seniority"><span>1年年資</span>{{ $juniorEmployees }}</div>
+</div>
 	
 <div class="content-wrapper">
 	<div class="prize-group">
-		@foreach($prizes as $item)
-		<a href="{{ url('raffle') }}" class="item">
-			<h4 class="title">{{ $item['title'] }}</h4>
-			<div class="desc">{{ $item['description'] }}</div>
+		@foreach($prizes as $key => $item)
+		<a href="{{ route('prepareDrawing', ['configKey' => $key]) }}" class="item year-{{ $item['yearLimit'] }}">
+			<div class="title">{{ $item['title'] }}</div>
+			<div class="desc">{!! $item['description'] !!}</div>
 			<div class="quantity">{{ $item['quantity'] }}</div>
 		</a>
 		@endforeach

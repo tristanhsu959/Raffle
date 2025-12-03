@@ -1,43 +1,49 @@
 /* Prizes Style */
 
-.signin {
+/* 抽獎人數 */
+.register {
 	position: absolute;
-	top: calc(64px + 30px);
+	top: 64px;
 	left: 1rem;
 	font-family: 'Orbitron';
 	font-size: 3rem;
 	font-weight: bold;
-	color: #f44336;
-	letter-spacing: .35rem;
+	letter-spacing: .25rem;
+	padding-top: 1rem;
 	
-	&:before {
-		content: '抽獎人數';
-		display: block;
-		font-size: 1rem;
-		font-weight: normal;
-		line-height: 1;
-		letter-spacing: normal;
-		margin-bottom: 0;
-		color: #777;
-		transform: translateY(.75rem);
+	h6 {
+		color: #212121;
+		font-size: 1.4rem;
 	}
-	
-	&:after {
-		content: '人';
-		font-size: .75rem;
-		letter-spacing: normal;
-		padding: .125rem .25rem;
-		border-radius: 50%;
-		background-color: var(--bg-secondary-color);
+	.seniority {
+		position: relative;
+		color: #aa00ff;
 		
+		/*年資*/
+		span {
+			position: absolute;
+			top: -.125rem;
+			font-size: .75rem;
+			letter-spacing: normal;
+			color: #607d8b;
+		}
+		&:after {
+			content: '人';
+			font-size: .75rem;
+			letter-spacing: normal;
+			padding: .125rem .25rem;
+			border-radius: 50%;
+			background-color: #e1bee7;
+			color: #000;
+		}
 	}
 }
 	
-	
+/* 獎項 */
 .content-wrapper {
 	width: 100%;
-	height: calc(100vh - 64px);
-	background-color: #fff;
+	min-height: calc(100vh - 64px);
+	/* background-color: #fff; */
 	padding: 4rem 1rem;
 	display: flex;
 	justify-content: center;
@@ -46,7 +52,7 @@
 	.prize-group {
 		display: grid;
 		grid-template-columns: repeat(8, 130px);
-		grid-template-rows: repeat(5, 225px);
+		grid-template-rows: repeat(1, 225px);
 		grid-column-gap: 8px;
 		grid-row-gap: 16px;
 		
@@ -57,15 +63,21 @@
 			aspect-ratio: cos(30deg); /* 0.86 */
 			-webkit-clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0%);
 			padding: 2rem 1rem;
-			background-color: #263238;
-			color: #90a4ae;
+			/* background-color: #263238; */
+			background-color: rgba(38, 50, 56, .85);
+			color: #eceff1;
 			transition: all .5s;
+			text-decoration: none;
 			
 			&:hover {
 				/*background-color: #ffecb3;*/
-				background-color: var(--bg-secondary-color);
+				background-color: var(--secondary-bg-color);
 				color: #263238;
 				cursor: pointer;
+				
+				.title {
+					color: #263238;
+				}
 			}
 			
 			&:nth-child(4n + 1) {
@@ -91,17 +103,20 @@
 				flex: 1;
 				text-align: center;
 				font-weight: bold;
+				font-size: 2rem;
+				color: #18ffff;
 			}
 			.desc {
 				flex: 2;
 				text-align: center;
 				word-break: break-all;
-				font-size: 1.25rem;
+				font-size: 1.5rem;
+				padding: 1rem 0;
 			}
 			.quantity {
 				flex: 1;
 				font-family: 'Orbitron';
-				font-size: 2.5rem;
+				font-size: 3rem;
 				text-align: center;
 				color: #f44336;
 			}
@@ -111,6 +126,12 @@
 				display: inline-block;
 				height: 100%;
 				vertical-align: middle;
+			}
+			
+			&.year-5 {
+				.title {
+					color: #ff4081;
+				}
 			}
 		}
 	}

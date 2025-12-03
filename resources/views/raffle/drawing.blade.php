@@ -1,23 +1,33 @@
 @extends('layouts.master')
 
-@section('backUrl', url('home'))
-
 @push('styles')
-    <link href="{{ asset('styles/raffle.css') }}" rel="stylesheet">
+    <link href="{{ asset('styles/raffle/drawing.css') }}" rel="stylesheet">
 @endpush
 
 @push('scripts')
     <script src=""></script>
 @endpush
 
+@section('actionbar-left')
+	<a href="{{ url('prizes') }}" class="btn" alt="Back"><span class="material-symbols-outlined">arrow_back</span></a>
+	<a href="{{ url('home') }}" class="btn" alt="Home"><span class="material-symbols-outlined">home</span></a>
+@endsection
+
+@section('actionbar-center')
+	<div class="prize-desc">
+		<div>{{ $prizeSetting['title'] }}</div>
+		<div>{{ $prizeSetting['description'] }}</div>
+	</div>
+@endsection
+
+
 @section('content')
-<div class="quota">20</div>
+<div class="quota">{{ $prizeSetting['quantity'] }}</div>
+<div class="start-btn trigger1">
+	<a class="btn loader1">開始抽獎</a>
+</div>
 	
 <div class="content-wrapper">
-	<div class="action-btn start">
-		<a class="btn-floating">START</a>
-	</div>
-	
 	<ul class="winner-list">
 		<li class="winner">
 			<div class="department">紅樹林＋各區業務辦公室＋高雄分公司</div>

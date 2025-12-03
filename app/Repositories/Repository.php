@@ -11,4 +11,10 @@ class Repository
 		#先用poserp測試之後再改
 		return DB::connection('Portal')->table($table)->lock('WITH(NOLOCK)');
 	}
+	
+	protected function connectRaffle($table)
+	{
+		#mysql
+		return DB::connection('Raffle')->table($table);
+	}
 }

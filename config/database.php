@@ -46,6 +46,16 @@ return [
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
+		'Raffle' => [
+            'driver' => 'mysql',
+            'host' => env('Raffle_DB_HOST', '127.0.0.1'),
+            'port' => env('Raffle_DB_PORT', '3306'),
+            'database' => env('Raffle_DB_DATABASE', 'Raffle'),
+            'username' => env('Raffle_DB_USERNAME', 'root'),
+            'password' => env('Raffle_DB_PASSWORD', ''),
+            'prefix' => '',
+            'prefix_indexes' => true,
+        ],
 		/*
         'sqlite' => [
             'driver' => 'sqlite',
