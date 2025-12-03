@@ -1,6 +1,9 @@
 $(function(){
 	$('#startDrawingForm .btn-start').click(function(e){
 		e.preventDefault();
+		
+		$(this).prop('disabled', true);
+		$(this).addClass('loader');
 		startDrawinig();
 	});
 });
@@ -19,7 +22,9 @@ function startDrawinig()
 		success: function(response) {
 			if(response.status)
 			{
+				
 			}
+			$('#startDrawingForm .btn-start').removeClass('loader');
 		},
         error: function(xhr, status, error) {
             console.error('Error:', error);

@@ -47,7 +47,7 @@ class RaffleController extends Controller
 		
 		if(!$request->ajax())
 		{
-			response['prizeSetting']	= $this->_service->getPrizeSetting($configKey);
+			//response['prizeSetting']	= $this->_service->getPrizeSetting($configKey);
 			return view('raffle.drawing', $response);
 		}
 		else

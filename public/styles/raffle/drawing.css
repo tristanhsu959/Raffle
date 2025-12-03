@@ -51,7 +51,7 @@
 	}
 }
 
-.start-btn {
+.start-btn-wrapper {
 	position: absolute;
 	top: calc(50% - 64px);
 	left: 50%;

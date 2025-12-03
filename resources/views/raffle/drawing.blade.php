@@ -27,7 +27,7 @@
 <form action="{{ url('drawing') }}" method="post" id="startDrawingForm">
 	@csrf
 	<input type="hidden" name="configKey" value="{{ $prizeSetting['configKey'] }}" />
-	<div class="start-btn">
+	<div class="start-btn-wrapper">
 		<button class="btn btn-start">開始抽獎</button>
 	</div>
 </form>
