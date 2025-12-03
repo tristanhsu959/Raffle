@@ -8,5 +8,7 @@ use App\Http\Controllers\RaffleController;
 #Remember to include controller file path
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
-Route::get('/raffle', [HomeController::class, 'raffle']);
 Route::get('/getWinnerList', [HomeController::class, 'getWinnerList']);
+
+Route::get('/raffle', [RaffleController::class, 'prizes']);
+Route::get('/raffle/drawing', [RaffleController::class, 'drawing']);

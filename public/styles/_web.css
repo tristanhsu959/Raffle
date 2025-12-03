@@ -1,0 +1,111 @@
+/* Common Style */
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: white;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+	
+	.content-container {
+		background: linear-gradient(135deg, var(--primary-bg-color), var(--primary-bg-color), var(--primary-light-bg-color));
+		
+		/* Left Center Right */
+		.actionbar {
+			position: sticky;
+			top: 0;
+			left: 0;
+			height: 64px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-left: 1rem;
+			padding-right: 1rem;
+			
+			.left, .center, .right {
+				display: inline-flex;
+			
+				a.btn {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 2.5rem;
+					height: 2.5rem;
+					color: #263238;
+					border-radius: 3rem;
+					margin-right: .25rem;
+					
+					&:last-child {
+						margin-right: 0;
+					}
+					
+					&:hover {
+						background-color: #da5e5e;
+					}
+				}
+			}
+		}
+		
+		.content-wrapper {
+			min-height: calc(100vh - 64px);
+		}
+	}
+}
+
+/* footer { */
+	/* position: fixed; */
+	/* left: 0; */
+	/* bottom: 0; */
+	/* width: 100%; */
+	/* padding: 1rem; */
+	/* display: flex; */
+	/* justify-content: flex-end; */
+	
+	/* .nav { */
+		/* display: flex; */
+		/* align-items: center; */
+		/* font-weight: bold; */
+		/* color: #000; */
+		
+		/* &:hover { */
+			/* cursor: pointer; */
+			/* transform: scale(1.25); */
+		/* } */
+	
+		/* &.left:before { */
+			/* content: '\e5c4'; */
+			/* font-family: 'material icons'; */
+			/* font-size: 1.5rem; */
+		/* } */
+		
+		/* &.right:after { */
+			/* content: '\e5c8'; */
+			/* font-family: 'material icons'; */
+			/* font-size: 1.5rem; */
+		/* } */
+	/* } */
+	
+/* } */
+
+/* .loader {     */
+	/* --r1: 154%; */
+	/* --r2: 68.5%; */
+	/* width: 100%; */
+	/* aspect-ratio: 1; */
+	/* /*border-radius: 50%; */ */
+	/* background: */
+		/* radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%), */
+		/* radial-gradient(var(--r1) var(--r2) at bottom,#269af2 79.5%,#0000 80%), */
+		/* radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%), */
+		/* #fff; */
+	/* background-size: 50.5% 220%; */
+	/* background-position: -100% 0%,0% 0%,100% 0%; */
+	/* background-repeat:no-repeat; */
+	/* animation: loader-wave 2s infinite linear; */
+/* } */
+
+/* @keyframes loader-wave { */
+    /* 33%  {background-position:    0% 33% ,100% 33% ,200% 33% } */
+    /* 66%  {background-position: -100%  66%,0%   66% ,100% 66% } */
+    /* 100% {background-position:    0% 100%,100% 100%,200% 100%} */
+/* } */

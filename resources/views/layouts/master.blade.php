@@ -1,5 +1,3 @@
-@include('menu')
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,28 +11,38 @@
 		<!-- Styles & Font -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" />
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="{{ asset('styles/_variables.css') }}" rel="stylesheet" />
-		<link href="{{ asset('styles/web.css') }}" rel="stylesheet" />
+		<link href="{{ asset('styles/_web.css') }}" rel="stylesheet" />
 		@stack('styles')
 	
 		<!-- Scripts -->
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
 		<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js" integrity="sha256-Fb0zP4jE3JHqu+IBB9YktLcSjI1Zc6J2b6gTjB0LpoM=" crossorigin="anonymous" defer></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
 		@stack('scripts')
 	
 	</head>
 
 	<body>
-		@yield('menu')
-		@yield('content')
-		
-		<footer>
-			@hasSection('backUrl')
-			<a href="@yield('backUrl')" class="nav right">BACK</a>
-			@endif
-		</footer>	  
+		<div class="content-container">
+			<div class="actionbar">
+				<div class="left">@yield('actionbar-left')</div>
+				<div class="center">@yield('actionbar-center')</div>
+				<div class="right">@yield('actionbar-right')</div>
+			</div>
+			@yield('content')
+			
+			{{--
+			<footer>
+				@hasSection('backUrl')
+				<a href="@yield('backUrl')" class="nav right">BACK</a>
+				@endif
+			</footer>	  
+			--}}
+		</div>
 	</body>
 </html>

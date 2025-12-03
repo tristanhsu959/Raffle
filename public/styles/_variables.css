@@ -1,7 +1,8 @@
 /* Variables Define */
 
 :root {
-	--bg-default:#ccc;
-	--bg-primary-color: #cb1a19;
-	--bg-secondary-color: #f5ac2d;
+	--default-bg-color:#fff;
+	--primary-bg-color: #cb1a19;
+	--primary-light-bg-color: #da5e5e;
+	--secondary-bg-color: #f5ac2d;
 }

@@ -1,13 +1,11 @@
 @extends('layouts.master')
 
-@section('backUrl', url('home'))
-
 @push('styles')
-    <link href="{{ asset('styles/winner.list.css') }}" rel="stylesheet">
+    <link href="{{ asset('styles/raffle/awards.css') }}" rel="stylesheet">
 @endpush
 
 @push('scripts')
-    <script src=""></script>
+    <!--script src=""></script-->
 @endpush
 
 @section('content')
