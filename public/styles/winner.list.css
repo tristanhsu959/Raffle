@@ -1,0 +1,57 @@
+/* Winner List Style */
+
+.content-wrapper {
+	width: 100%;
+	/*height: calc(100vh - 64px);*/
+	background-color: #fff;
+	padding: 2rem 1rem;
+	display: flex;
+	align-content: flex-start;
+	flex-wrap: wrap;
+	
+	.card.winner {
+		width: 200px;
+		height: auto;
+		margin-top: 0;
+		margin-right: .5rem;
+		
+		.card-title {
+			display: block;
+			height: 100px;
+			width: 100%;
+			background-color: #f44336;
+			padding: 1.5rem;
+			text-align: center;
+			box-sizing: border-box;
+			-webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+		}
+		
+		.card-content {
+			padding: 1rem;
+			
+			.collection {
+				border-width: 0;
+				
+				/* winner info */
+				.collection-item {
+					
+					p:nth-child(1) {
+						color: #37474f;
+					}
+					p:nth-child(2) {
+						font-size: .8rem;
+						color: #37474f;
+					}
+					p:nth-child(3) {
+						font-size: 1.5rem;
+						font-weight: bold;
+						color: #000;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+    

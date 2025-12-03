@@ -1,0 +1,46 @@
+/* SignIn Style */
+
+.input-field {
+	margin-bottom: 2rem;
+}
+
+.content-wrapper {
+	width: 100%;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	.header {
+		width: 100%;
+		padding-top: 4rem;
+		margin-bottom: 4rem;
+		background-color: var(--bg-primary-color);
+		clip-path: ellipse(50% 100% at Top);
+	}
+	img {
+		width: auto;
+		height: 60px;
+		margin-bottom: 1rem;
+	}
+	
+	.action {
+		display: flex;
+		justify-content: space-between;
+		
+		#reset:hover {
+			color: #fff;
+			background-color: #f44336;
+		}
+		#submit {
+			width: 50%;
+			border: 1px solid #7cb342;
+			color: #7cb342;
+			background-color: transparent;
+		}
+	}	
+}
+
+
+    
