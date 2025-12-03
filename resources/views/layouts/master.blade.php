@@ -31,7 +31,6 @@
 		<div class="content-container">
 			<div class="actionbar">
 				<div class="left">@yield('actionbar-left')</div>
-				<div class="center">@yield('actionbar-center')</div>
 				<div class="right">@yield('actionbar-right')</div>
 			</div>
 			@yield('content')

@@ -2,30 +2,58 @@
 
 /* 抽獎人數 */
 .register {
-	position: absolute;
-	top: 64px;
-	left: 1rem;
+	/* position: absolute; */
+	/* top: 1rem; */
+	/* left: 50%; */
+	/* transform: translateX(-50%); */
 	font-family: 'Orbitron';
-	font-size: 3rem;
+	font-size: 2.5rem;
 	font-weight: bold;
 	letter-spacing: .25rem;
-	padding-top: 1rem;
+	display: flex;
+	align-items: center;
 	
 	h6 {
 		color: #212121;
 		font-size: 1.4rem;
+		margin: 0;
+		margin-right: 1rem;
 	}
 	.seniority {
 		position: relative;
 		color: #aa00ff;
+		margin-right: 3rem;
+		
+		&:last-child {
+			padding-right: 0;
+		}
 		
 		/*年資*/
-		span {
-			position: absolute;
-			top: -.125rem;
+		/* span { */
+			/* position: absolute; */
+			/* top: 0; */
+			/* right: 0; */
+			/* font-size: .75rem; */
+			/* letter-spacing: normal; */
+			/* color: #607d8b; */
+		/* } */
+		&.senior:before {
+			content: '5年年資';
 			font-size: .75rem;
 			letter-spacing: normal;
-			color: #607d8b;
+			color: #212121;
+			position: absolute;
+			top: .8rem;
+			right: -3ch;
+		}
+		&.junior:before {
+			content: '1年年資';
+			font-size: .75rem;
+			letter-spacing: normal;
+			color: #212121;
+			position: absolute;
+			top: .8rem;
+			right: -2.5ch;
 		}
 		&:after {
 			content: '人';
@@ -33,8 +61,8 @@
 			letter-spacing: normal;
 			padding: .125rem .25rem;
 			border-radius: 50%;
-			background-color: #e1bee7;
-			color: #000;
+			background-color: #f44336;
+			color: #fff;
 		}
 	}
 }

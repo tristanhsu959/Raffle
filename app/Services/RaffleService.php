@@ -50,60 +50,72 @@ class RaffleService
 	}
 	
 	/* 要考慮一次抽多人的狀況
-	 * $awardCount	int	default = 1
+	 * @param int
+	 * @return array
 	 */
-	public function executeDrawing($awardCount = 10)
+	public function startDrawing($configKey)
 	{
-		$winnerList = [];
+		$winnerIds = [];
+		$config = $this->getPrizeSetting($configKey);
 		
-		#Step1 最後是固定人數(怎麼記錄排除已得獎者???)
-		$employees = $this->getSignInEmployees();
+		#1.取相關設定
+		$prizeNo 	= $config['key'];
+		$poolTable 	= $config['pool'];
+		$quantity 	= $config['quantity']; #名額
 		
-		for($i = 0; $i < $awardCount; $i++)
+		#2.取抽獎人數(Id即可)
+		$employees = $this->_repository->getValidEmployeesId($poolTable);
+		
+		#3.隨取抽獎
+		$winnerIds = $this->_drawingWinner($employees, $quantity);
+		
+		#4.Update DB
+		$this->_repository->setWinners($poolTable, $winnerIds, $prizeNo);
+		
+		return $winnerIds;
+	}
+	
+	private function _drawingWinner($employees, $quantity)
+	{
+		$winnerIds = [];
+		
+		for($i = 0; $i < $quantity; $i++)
 		{
-			#Step2
-			$employees = $this->shuffleData($employees);
+			#1 打亂
+			$employees = $this->_shuffleEmployees($employees);
 			
-			#Step3
-			$winnerKey = $this->getWinnerKey($employees);
+			#2 取隨機Key值, 非Id
+			$winnerKey = $this->_getWinnerKey($employees);
 			
-			$winnerList[] = $employees[$winnerKey];
+			#3 取出Id
+			$winnerIds[] = $employees[$winnerKey];
 			
-			#remove winner
+			#4 刪除已得獎者Key
 			$employees = Arr::except($employees, $winnerKey);
 		}
 		
-		return $winnerList;
+		return $winnerIds;
 	}
 	
-	// /* Lottery Step Function */
-	// private function getSignInEmployees()
-	// {
-		// #Collection array
-		// $employees = $this->_repository->getSignInList();
+	private function _shuffleEmployees($employees)
+	{
+		#Get shuffle times from random function
+		$times = Arr::random(config('web.raffle.shuffle_times'));
 		
-		// return $employees;
-	// }
+		for($i = 0; $i < $times; $i++)
+		{
+			$employees = Arr::shuffle($employees);
+		}
+		
+		return $employees;
+	}
 	
-	// private function shuffleData($data)
-	// {
-		// #Get shuffle times from random function
-		// $times = Arr::random(config('web.lottery.shuffle_times'));
+	private function _getWinnerKey($data)
+	{
+		$keys = array_keys($data);
+		$keys = Arr::shuffle($keys);
+		$winnerKey = Arr::random($keys);
 		
-		// for($i = 0; $i < $times; $i++)
-		// {
-			// $data = Arr::shuffle($data);
-		// }
-		
-		// return $data;
-	// }
-	
-	// private function getWinnerKey($data)
-	// {
-		// $keys = array_keys($data);
-		// $keys = Arr::shuffle($keys);
-		// $winnerKey = Arr::random($keys);
-		
-		// return $winnerKey;
-	// }
+		return $winnerKey;
+	}
 }

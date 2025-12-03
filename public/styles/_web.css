@@ -22,11 +22,13 @@ body {
 			padding-left: 1rem;
 			padding-right: 1rem;
 			/* background: linear-gradient(180deg, var(--primary-bg-color), var(--primary-bg-color), #fff, #fff); */
-			background-color: #fafafa;
+			/* background-color: #fafafa; */
+			/* background-color: var(--secondary-bg-color); */
+			border-bottom: 1px solid #eceff1;
 			
-			.left, .center, .right {
+			.left, .right {
 				display: flex;
-				flex: 1;
+				align-items: center;
 				
 				a.btn {
 					display: flex;

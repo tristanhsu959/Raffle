@@ -2,8 +2,10 @@
 
 body .content-container {
 	background: linear-gradient(135deg, var(--primary-bg-color), var(--primary-bg-color), var(--primary-light-bg-color));
+	
 	.actionbar {
 		background: transparent;
+		border-bottom-width: 0;
 	}
 }
 .content-wrapper {

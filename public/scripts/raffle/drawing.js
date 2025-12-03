@@ -2,8 +2,8 @@ $(function(){
 	$('#startDrawingForm .btn-start').click(function(e){
 		e.preventDefault();
 		
-		$(this).prop('disabled', true);
 		$(this).addClass('loader');
+		$(this).prop('disabled', true);
 		startDrawinig();
 	});
 });

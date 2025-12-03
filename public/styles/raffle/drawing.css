@@ -1,59 +1,70 @@
 /* Raffle Style */
 
-.content-container .actionbar {
-	.center .prize-desc {
+body .content-container .actionbar {
+	.left .prize-desc {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		
 		div {
-			font-size: 2.5rem;
+			font-size: 1.5rem;
 			color: #f44336;
 			margin: 0;
+			
+			&.title {
+				padding: 0 .75rem;
+				border-radius: .5rem;
+				background-color: #f44336;
+				color: #fff;
+			}
 			&:first-child {
 				margin-right: .5rem;
 			}
 		}
 	}
+	
+	.right .quantity {
+		/* position: absolute; */
+		/* top: calc(64px + 2rem); */
+		/* left: 1rem; */
+		font-family: 'Orbitron';
+		font-size: 2rem;
+		font-weight: bold;
+		color: #0d47a1;
+		/* letter-spacing: .125rem; */
+		/* z-index: 10; */
+		
+		.completed {
+			color: #03a9f4;
+		}
+		&:before {
+			content: '抽獎名額';
+			display: block;
+			font-size: .75rem;
+			font-weight: normal;
+			line-height: 1;
+			letter-spacing: normal;
+			margin-bottom: .25rem;
+			color: #212121;
+			transform: translateY(.75rem);
+		}
+		
+		&:after {
+			content: '名';
+			font-size: .75rem;
+			letter-spacing: normal;
+			padding: .125rem .25rem;
+			border-radius: 50%;
+			background-color: var(--bg-secondary-color);
+			color: #212121;
+		}
+	}
 }
 
-.quantity {
-	position: absolute;
-	top: calc(64px + 2rem);
-	left: 1rem;
-	font-family: 'Orbitron';
-	font-size: 3rem;
-	font-weight: bold;
-	color: #0d47a1;
-	letter-spacing: .35rem;
-	z-index: 10;
-	
-	&:before {
-		content: '抽獎名額';
-		display: block;
-		font-size: 1rem;
-		font-weight: normal;
-		line-height: 1;
-		letter-spacing: normal;
-		margin-bottom: 0;
-		color: #000;
-		transform: translateY(.75rem);
-	}
-	
-	&:after {
-		content: '名';
-		font-size: .75rem;
-		letter-spacing: normal;
-		padding: .125rem .25rem;
-		border-radius: 50%;
-		background-color: var(--bg-secondary-color);
-		color: #444;
-	}
-}
 
 .start-btn-wrapper {
 	position: absolute;
-	top: calc(50% - 64px);
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	

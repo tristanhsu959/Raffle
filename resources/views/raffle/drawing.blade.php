@@ -11,24 +11,23 @@
 @section('actionbar-left')
 	<a href="{{ url('prizes') }}" class="btn" alt="Back"><span class="material-symbols-outlined">arrow_back</span></a>
 	<a href="{{ url('home') }}" class="btn" alt="Home"><span class="material-symbols-outlined">home</span></a>
-@endsection
-
-@section('actionbar-center')
 	<div class="prize-desc">
-		<div>{{ $prizeSetting['title'] }}</div>
+		<div class="title">{{ $prizeSetting['title'] }}</div>
 		<div>{{ $prizeSetting['description'] }}</div>
 	</div>
 @endsection
 
+@section('actionbar-right')
+<div class="quantity"><span class="completed">0</span> / {{ $prizeSetting['quantity'] }}</div>
+@endsection
+
 
 @section('content')
-<div class="quantity">{{ $prizeSetting['quantity'] }}</div>
-
 <form action="{{ url('drawing') }}" method="post" id="startDrawingForm">
 	@csrf
 	<input type="hidden" name="configKey" value="{{ $prizeSetting['configKey'] }}" />
 	<div class="start-btn-wrapper">
-		<button class="btn btn-start">開始抽獎</button>
+		<button type="button" class="btn btn-start">開始抽獎</button>
 	</div>
 </form>
 	
