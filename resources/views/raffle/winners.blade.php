@@ -23,16 +23,30 @@
 
 @section('content')
 <div class="content-wrapper">
-	<ul class="winner-list1">
-		@foreach($winnerInfo as $winner)
-		<li class="winner1">
-			<div class="department">{{ $winner['Department'] }}</div>
-			<div class="info">
-				<span class="id-num">{{ $winner['EmployeeNo'] }}</span>
-				<span class="name">{{ $winner['Name'] }}</span>
+	<div id="carouselWinners" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+		<div class="carousel-inner">
+			@foreach($winnerInfo as $key => $winner)
+			<div class="carousel-item {{ ($key == 0)?'active':'' }}">
+				<div class="winner">
+					<span class="no">No.{{$key+1}}</span>
+					<div class="name">{{ $winner['Name'] }}</div>
+					<div class="prize">{{ $prizeSetting['title'] }}</div>
+					<div class="info">
+						<div class="id-num">{{ $winner['EmployeeNo'] }}</div>
+						<div class="department">{{ $winner['Department'] }}</div>
+					</div>
+				</div>
 			</div>
-		</li>
-		@endforeach
-	</ul>
+			@endforeach
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselWinners" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselWinners" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
 </div>
 @endsection()

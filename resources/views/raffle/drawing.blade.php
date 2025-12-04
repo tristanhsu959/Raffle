@@ -30,7 +30,11 @@
 		<button type="button" class="btn btn-start {{ (in_array($prizeSetting['configKey'], $raffleStatus))?'disabled':'' }}">開始抽獎</button>
 	</div>
 </form>
-	
+
+<a href="http://google.com.tw" class="btn btn-viewer">
+	<span class="material-symbols-outlined">view_carousel</span>
+</a>
+
 <div class="content-wrapper">
 	<ul class="winner-list">
 		<li class="winner">

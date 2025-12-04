@@ -63,7 +63,7 @@ return [
 		],
 		'8' => [
 			'key' 			=> 25008,
-			'title' 		=> '七獎',
+			'title' 		=> '八獎',
 			'description' 	=> '招牌煎餃100顆',
 			'quantity' 		=> 50,
 			'yearLimit'	 	=> 1,
@@ -71,7 +71,7 @@ return [
 		],
 		'9' => [
 			'key' 			=> 25009,
-			'title' 		=> '八獎',
+			'title' 		=> '九獎',
 			'description' 	=> '招牌煎餃200顆',
 			'quantity' 		=> 50,
 			'yearLimit'	 	=> 1,
@@ -79,7 +79,7 @@ return [
 		],
 		'10' => [
 			'key' 			=> 25010,
-			'title' 		=> '九獎',
+			'title' 		=> '十獎',
 			'description' 	=> '招牌煎餃100顆',
 			'quantity' 		=> 50,
 			'yearLimit'	 	=> 1,

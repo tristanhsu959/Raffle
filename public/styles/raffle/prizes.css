@@ -159,19 +159,19 @@
 				grid-column-start: 6;
 			}
 			&:nth-child(4n + 8) {
-				grid-column-start: 8;
-			}
-			&:nth-child(4n + 9) {
 				grid-column-start: 1;
 			}
-			&:nth-child(4n + 10) {
+			&:nth-child(4n + 9) {
 				grid-column-start: 3;
 			}
-			&:nth-child(4n + 11) {
+			&:nth-child(4n + 10) {
 				grid-column-start: 5;
 			}
-			&:nth-child(4n + 12) {
+			&:nth-child(4n + 11) {
 				grid-column-start: 7;
+			}
+			&:nth-child(4n + 12) {
+				grid-column-start: 2;
 			}
 			
 			.title {

@@ -18,9 +18,12 @@ body .content-container {
 	justify-content: center;
 	align-items: center;
 	
-	img {
+	a {
 		width: 36%;
-		height: auto;
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 	.desc {
 		font-family: 'Zhi Mang Xing';
