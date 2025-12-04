@@ -22,7 +22,7 @@
 	<div class="prize-group">
 	@foreach($prizes as $key => $item)
 		@if (in_array($key, $raffleStatus))
-		<a href="#" class="item {{ ($item['yearLimit'] == 5) ? 'senior' : 'junior' }} disabled">
+		<a href="{{ route('winnerList', ['configKey' => $key]) }}" class="item {{ ($item['yearLimit'] == 5) ? 'senior' : 'junior' }} disabled">
 			<div class="title">{{ $item['title'] }}</div>
 			<div class="desc">{!! $item['description'] !!}</div>
 			<div class="quantity">已結束</div>

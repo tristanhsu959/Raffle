@@ -8,7 +8,6 @@
 @endpush
 
 @section('actionbar-left')
-	<a href="" class="btn" alt="得獎名單"><span class="material-symbols-outlined">rewarded_ads</span></a>
 	<a href="{{ url('prizes') }}" class="btn" alt="抽獎"><span class="material-symbols-outlined">playing_cards</span></a>
 @endsection
 

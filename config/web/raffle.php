@@ -53,7 +53,38 @@ return [
 			'yearLimit'	 	=> 1,
 			'pool' 			=> 'poolyear',
 		],
-		
+		'7' => [
+			'key' 			=> 25007,
+			'title' 		=> '七獎',
+			'description' 	=> '招牌煎餃200顆',
+			'quantity' 		=> 50,
+			'yearLimit'	 	=> 1,
+			'pool' 			=> 'poolyear',
+		],
+		'8' => [
+			'key' 			=> 25008,
+			'title' 		=> '七獎',
+			'description' 	=> '招牌煎餃100顆',
+			'quantity' 		=> 50,
+			'yearLimit'	 	=> 1,
+			'pool' 			=> 'poolyear',
+		],
+		'9' => [
+			'key' 			=> 25009,
+			'title' 		=> '八獎',
+			'description' 	=> '招牌煎餃200顆',
+			'quantity' 		=> 50,
+			'yearLimit'	 	=> 1,
+			'pool' 			=> 'poolyear',
+		],
+		'10' => [
+			'key' 			=> 25010,
+			'title' 		=> '九獎',
+			'description' 	=> '招牌煎餃100顆',
+			'quantity' 		=> 50,
+			'yearLimit'	 	=> 1,
+			'pool' 			=> 'poolyear',
+		],
 	],
 	
 	#洗牌次數

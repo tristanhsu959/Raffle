@@ -33,14 +33,6 @@
 				<div class="right">@yield('actionbar-right')</div>
 			</div>
 			@yield('content')
-			
-			{{--
-			<footer>
-				@hasSection('backUrl')
-				<a href="@yield('backUrl')" class="nav right">BACK</a>
-				@endif
-			</footer>	  
-			--}}
 		</div>
 	</body>
 </html>

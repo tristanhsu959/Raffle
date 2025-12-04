@@ -149,4 +149,30 @@ class RaffleService
 		
 		return $status;
 	}
+	
+	public function getWinnerList($configKey)
+	{
+		try
+		{
+			$winnerInfo = [];
+			$config = $this->getPrizeSetting($configKey);
+			
+			#1.取設定
+			$prizeNo 	= $config['key'];
+			$poolTable 	= $config['pool'];
+			
+			#2.Get Winner Info
+			$winnerInfo = $this->_repository->getWinnerInfo($poolTable, $prizeNo);
+			
+			#3.To array
+			$winnerInfo = json_decode(json_encode($winnerInfo), TRUE);
+			
+			return $winnerInfo;
+		}
+		catch(Exception $e)
+		{
+			Log::error($e->getMessage(), [ __class__, __function__]);
+			return [];
+		}
+	}
 }

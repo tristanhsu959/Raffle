@@ -1,0 +1,144 @@
+/* Raffle Style */
+
+body .content-container .actionbar {
+	.left .prize-desc {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		div {
+			font-size: 1.5rem;
+			color: #f44336;
+			margin: 0;
+			
+			&.title {
+				padding: 0 .75rem;
+				border-radius: .5rem;
+				background-color: var(--primary-bg-color);
+				color: #fff;
+			}
+			&:first-child {
+				margin-right: .5rem;
+			}
+		}
+	}
+	
+	.right .quantity {
+		font-family: 'Orbitron';
+		font-size: 2rem;
+		font-weight: bold;
+		color: #0d47a1;
+		
+		.winner-count {
+			color: #f44336;
+		}
+	}
+}
+
+.content-wrapper {
+	--scrollbar-width: calc(100vw - 100%);
+	
+	display: block;
+	position: relative;
+	width: calc(100% - var(--scrollbar-width));
+	/* height: calc(100vh - 64px); */
+	background-color: transparent;
+	padding: 2rem 1rem;
+	/* margin: auto; */
+	box-sizing: border-box;
+	
+	/*Ul*/
+	.winner-list {
+		display: flex;
+		align-content: flex-start;
+		flex-wrap: wrap;
+		padding: 0 1rem;
+		margin: 0;
+		
+		.winner {
+			position: relative;
+			width: calc( (100% - 2rem - 6rem) / 4);
+			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+			border-radius: 2px;
+			border: 1px solid #f44336;
+			display: flex;
+			flex-direction: column;
+			margin: 1rem;
+			
+			&:after {
+				content: '\ea23';
+				font-family: 'Material Symbols Outlined';
+				font-size: 2rem;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: translate(-40%, -40%);
+				width: 40px;
+				height: 40px;
+				color: #ffc107;
+				background-color: #fff8e1;
+				border: 1px solid #ffc107;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				
+			}
+			
+			.department {
+				position: relative;
+				width: 100%;
+				height: 48px;
+				display:flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #f44336;
+				font-size: .9rem;
+				padding: .5rem 1rem;
+				color: #fff;
+				
+				&:after {
+					content: '';
+					width: 0;
+					height: 0;
+					border-width: 16px 24px 0;
+					border-color: transparent;
+					border-top-color: #f44336;
+					border-style: solid;
+					position: absolute;
+					bottom: -12px;
+				}
+				
+			}
+			
+			.info {
+				width: 100%;
+				height: 80px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding: .5rem 1rem;
+				
+				span {
+					text-align: center;
+					
+					&.id-num {
+						font-family: 'Cinzel Decorative';
+						color: #455a64;
+						font-weight: bold;
+					}
+					
+					&.name {
+						color: #000;
+						font-weight: bold;
+						font-size: 1.5rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+    

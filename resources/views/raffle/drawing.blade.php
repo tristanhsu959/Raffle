@@ -23,7 +23,7 @@
 
 
 @section('content')
-<form action="{{ url('drawing') }}" method="post" id="startDrawingForm">
+<form action="{{ url('drawing/start') }}" method="post" id="startDrawingForm">
 	@csrf
 	<input type="hidden" name="configKey" value="{{ $prizeSetting['configKey'] }}" />
 	<div class="start-btn-wrapper">

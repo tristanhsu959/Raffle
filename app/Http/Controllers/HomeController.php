@@ -3,29 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Services\HomeService;
+use App\Services\RaffleService;
 
 class HomeController extends Controller
 {
 	private $_service;
     
-	public function __construct(HomeService $homeService)
+	public function __construct(RaffleService $raffleService)
 	{
-		$this->_service = $homeService;
+		$this->_service = $raffleService;
 	}
 	
 	public function index()
 	{
 		return view('home.index');
 	}
-	
-	// public function home2()
-	// {
-		// $returnData['signInCount'] = $this->_service->getSignInCount();
-		// $returnData['prize'] = $this->_service->getPrize(); #取獎項
-		
-		// return view('home', $returnData);
-	// }
 	
 	// /* 得獎者清單
 	 // *

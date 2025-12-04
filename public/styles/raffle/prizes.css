@@ -92,7 +92,7 @@
 	.prize-group {
 		display: grid;
 		grid-template-columns: repeat(8, 130px);
-		grid-template-rows: repeat(1, 225px);
+		grid-template-rows: repeat(3, 225px); /* Row控制調整 */
 		grid-column-gap: 8px;
 		grid-row-gap: 16px;
 		
@@ -109,7 +109,7 @@
 			transition: all .5s;
 			text-decoration: none;
 			
-			&.disabled {
+			&.disabled, &.senior.disabled {
 				background-color: rgba(38, 50, 56, .85);
 				
 				.quantity {
@@ -136,6 +136,7 @@
 				}
 			}
 			
+			/* Column控制調整, 一個區塊占2 Columns */
 			&:nth-child(4n + 1) {
 				grid-column-start: 1;
 			}
@@ -153,6 +154,24 @@
 			}
 			&:nth-child(4n + 6) {
 				grid-column-start: 4;
+			}
+			&:nth-child(4n + 7) {
+				grid-column-start: 6;
+			}
+			&:nth-child(4n + 8) {
+				grid-column-start: 8;
+			}
+			&:nth-child(4n + 9) {
+				grid-column-start: 1;
+			}
+			&:nth-child(4n + 10) {
+				grid-column-start: 3;
+			}
+			&:nth-child(4n + 11) {
+				grid-column-start: 5;
+			}
+			&:nth-child(4n + 12) {
+				grid-column-start: 7;
 			}
 			
 			.title {

@@ -2,16 +2,16 @@
 
 namespace App\Services;
 
-use App\Repositories\PartyRepository;
+use App\Repositories\RaffleRepository;
 use Illuminate\Support\Arr;
 
 class HomeService
 {
 	private $_repository;
     
-	public function __construct(PartyRepository $partyRepository)
+	public function __construct(RaffleRepository $raffleRepository)
 	{
-		$this->_repository = $partyRepository;
+		$this->_repository = $raffleRepository;
 	}
 	
 	// /* 取獎項

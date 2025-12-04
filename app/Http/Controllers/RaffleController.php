@@ -15,6 +15,10 @@ class RaffleController extends Controller
 	{
 		$this->_service = $raffleService;
 	}
+	public function index()
+	{
+		return view('raffle.home');
+	}
 	
 	/* 顯示抽獎獎項View
 	 *
@@ -65,19 +69,14 @@ class RaffleController extends Controller
 		}
 	}
 	
-	// /* 得獎者清單
-	 // *
-	 // */
-	// public function getWinnerList()
-	// {
-		// return view('winnerList');
-	// }
-
-	// /* 抽獎執行頁
-	 // *
-	 // */
-	// public function raffle()
-	// {
-		// return view('raffle');
-	// }
+	/* 得獎者清單By獎項
+	 *
+	 */
+	public function listWinners(Request $request, $configKey)
+	{
+		$response['prizeSetting']	= $this->_service->getPrizeSetting($configKey);
+		$response['winnerInfo'] 	= $this->_service->getWinnerList($configKey);
+		
+		return view('raffle.winners', $response);
+	}
 }
