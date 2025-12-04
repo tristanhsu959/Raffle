@@ -14,6 +14,7 @@ class SignInController extends Controller
 		//$this->_service = $raffleService;
 	}
 	
+	/* 目前沒用 */
 	public function index()
 	{
 		return view('api.signin');

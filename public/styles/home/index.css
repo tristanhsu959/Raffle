@@ -6,6 +6,10 @@ body .content-container {
 	.actionbar {
 		background: transparent;
 		border-bottom-width: 0;
+		
+		.left a.btn:hover {
+			background-color: #f44336;
+		}
 	}
 }
 .content-wrapper {

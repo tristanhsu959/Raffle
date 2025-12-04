@@ -17,6 +17,6 @@ class SettingService
 	public function createFake()
 	{
 		$this->_repository->createFakePool('pool5years', 100);
-		$this->_repository->createFakePool('poolyear', 300);
+		$this->_repository->createFakePool('poolyear', 500);
 	}
 }

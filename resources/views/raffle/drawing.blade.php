@@ -6,12 +6,6 @@
 
 @push('scripts')
     <script src="{{ asset('scripts/raffle/drawing.js') }}" defer></script>
-	<script type="text/template" data-template="userProfile">
-		<div class="user-card">
-			<h2>Welcome, <span class="username"></span>!</h2>
-			<p>Email: <span class="user-email"></span></p>
-		</div>
-	</script>
 @endpush
 
 @section('actionbar-left')
@@ -24,7 +18,7 @@
 @endsection
 
 @section('actionbar-right')
-<div class="quantity"><span class="completed">0</span> / {{ $prizeSetting['quantity'] }}</div>
+<div class="quantity"><span class="winner-count">0</span> / {{ $prizeSetting['quantity'] }}</div>
 @endsection
 
 
@@ -33,7 +27,7 @@
 	@csrf
 	<input type="hidden" name="configKey" value="{{ $prizeSetting['configKey'] }}" />
 	<div class="start-btn-wrapper">
-		<button type="button" class="btn btn-start">開始抽獎</button>
+		<button type="button" class="btn btn-start {{ (in_array($prizeSetting['configKey'], $raffleStatus))?'disabled':'' }}">開始抽獎</button>
 	</div>
 </form>
 	

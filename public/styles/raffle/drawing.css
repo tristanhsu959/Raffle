@@ -34,11 +34,11 @@ body .content-container .actionbar {
 		/* letter-spacing: .125rem; */
 		/* z-index: 10; */
 		
-		.completed {
+		.winner-count {
 			color: #03a9f4;
 		}
 		&:before {
-			content: '抽獎名額';
+			content: '抽獎名額'; /*抽獎名額*/
 			display: block;
 			font-size: .75rem;
 			font-weight: normal;
@@ -50,7 +50,7 @@ body .content-container .actionbar {
 		}
 		
 		&:after {
-			content: '名';
+			content: '名'; /*名*/
 			font-size: .75rem;
 			letter-spacing: normal;
 			padding: .125rem .25rem;
@@ -120,6 +120,12 @@ body .content-container .actionbar {
 			display: flex;
 			flex-direction: column;
 			margin: 1rem;
+			opacity: 0;
+			animation: winnerFadeIn 2s ease-in forwards;
+			
+			/* &.active { */
+				/* opacity: 1; */
+			/* } */
 			
 			&:after {
 				content: '\ea23';
@@ -202,6 +208,18 @@ body .content-container .actionbar {
 			}
 		}
 	}
+}
+
+@keyframes winnerFadeIn {
+    0% {
+        opacity: 0;
+    }
+	50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 

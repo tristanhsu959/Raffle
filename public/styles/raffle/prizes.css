@@ -103,20 +103,36 @@
 			aspect-ratio: cos(30deg); /* 0.86 */
 			-webkit-clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0%);
 			padding: 2rem 1rem;
-			/* background-color: #263238; */
-			background-color: rgba(38, 50, 56, .85);
+			background-color: rgba(203, 26, 25, .85);
+			/* background-color: rgba(38, 50, 56, .85); */
 			color: #eceff1;
 			transition: all .5s;
 			text-decoration: none;
 			
-			&:hover {
+			&.disabled {
+				background-color: rgba(38, 50, 56, .85);
+				
+				.quantity {
+					font-size: 2rem;
+				}
+				div {
+					color: #757575;
+				}
+			}
+			&.senior {
+				.title {
+					color: #f6ccfd;
+				}
+			}
+			
+			&:hover, &.senior:hover {
 				/*background-color: #ffecb3;*/
 				background-color: var(--secondary-bg-color);
 				color: #263238;
 				cursor: pointer;
 				
 				.title {
-					color: #263238;
+					color: #f44336;
 				}
 			}
 			
@@ -166,12 +182,6 @@
 				display: inline-block;
 				height: 100%;
 				vertical-align: middle;
-			}
-			
-			&.year-5 {
-				.title {
-					color: #ff4081;
-				}
 			}
 		}
 	}

@@ -16,23 +16,28 @@ class RaffleController extends Controller
 		$this->_service = $raffleService;
 	}
 	
-	/* 獎項
+	/* 顯示抽獎獎項View
 	 *
 	 */
 	public function prizes()
 	{
+		#取抽獎執行狀態
+		$response['raffleStatus'] 	= $this->_service->getRaffleStatus();
 		$response['prizes'] 		= $this->_service->getPrizes(); #取獎項
 		list($response['seniorEmployees'] ,$response['juniorEmployees']) = $this->_service->getRegisterEmployees();
 		
 		return view('raffle.prizes', $response);
 	}
 	
-	/* 抽獎執行頁
+	/* 預備抽獎執行頁
 	 *
 	 */
 	public function prepareDrawing(Request $request, $configKey)
 	{
+		#取抽獎執行狀態
+		$response['raffleStatus'] 	= $this->_service->getRaffleStatus();
 		$response['prizeSetting']	= $this->_service->getPrizeSetting($configKey);
+		
 		return view('raffle.drawing', $response);
 	}
 	
@@ -51,7 +56,7 @@ class RaffleController extends Controller
 			$response['data'] = $this->_service->startDrawing($configKey);
 			$response['status'] = TRUE;
 			
-			return view('raffle.drawing', $response);
+			return response()->json($response);
 		}
 		else
 		{

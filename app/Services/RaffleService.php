@@ -132,4 +132,21 @@ class RaffleService
 		
 		return $winnerKey;
 	}
+	
+	public function getRaffleStatus()
+	{
+		$status = [];
+		
+		#config
+		$prizes = $this->getPrizes();
+		$existPrizeNo = $this->_repository->getRaffleStatus();
+		
+		foreach($prizes as $prizeKey => $setting)
+		{
+			if (in_array($setting['key'], $existPrizeNo))
+				$status[] = $prizeKey;
+		}			
+		
+		return $status;
+	}
 }

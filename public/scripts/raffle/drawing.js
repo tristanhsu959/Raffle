@@ -1,4 +1,6 @@
 $(function(){
+	//Initial
+	$('.winner-list').html('');
 	$('#startDrawingForm .btn-start').click(function(e){
 		e.preventDefault();
 		
@@ -6,20 +8,11 @@ $(function(){
 		$(this).prop('disabled', true);
 		startDrawinig();
 	});
-	
-	let templateHtml = $('script[data-template="userProfile"]').html();
-	let userData = { name: "John Doe", email: "john.doe@example.com" };
-
-	let $template = $(templateHtml); // Create a jQuery object from the template
-	$template.find('.username').text(userData.name);
-	$template.find('.user-email').text(userData.email);
-
-	$('body').append($template);
 });
 
 function startDrawinig()
 {
-	var formData = new FormData($('#startDrawingForm')[0]);
+	let formData = new FormData($('#startDrawingForm')[0]);
 	
 	$.ajax({
         url: $('#startDrawingForm').attr('action'),
@@ -29,15 +22,32 @@ function startDrawinig()
 		contentType: false, // Essential for FormData, especially with file uploads
         
 		success: function(response) {
+			console.log(response);
+			
 			if(response.status)
-			{
-				
+			{	
+				$.each(response.data, function(key, winner){
+					let duration = parseFloat(key / 10);
+					let winnerTemplate = `
+						<li class="winner active" style="animation-delay: ${duration}s;">
+							<div class="department">${winner.Department}</div>
+							<div class="info">
+								<span class="id-num">${winner.EmployeeNo}</span>
+								<span class="name">${winner.Name}</span>
+							</div>
+						</li>`;
+						
+					$('.winner-list').append(winnerTemplate);
+					$('.actionbar .right .quantity .winner-count').text(parseInt(key) + 1);
+				});
 			}
-			$('#startDrawingForm .btn-start').removeClass('loader');
+			else
+				console.error(response.msg);
+			
+			$('#startDrawingForm .btn-start').removeClass('loader').hide();
 		},
         error: function(xhr, status, error) {
             console.error('Error:', error);
-                // Handle error response
 		}
 	});
 }
