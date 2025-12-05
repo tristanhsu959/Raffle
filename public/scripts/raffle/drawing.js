@@ -22,12 +22,11 @@ function startDrawinig()
 		contentType: false, // Essential for FormData, especially with file uploads
         
 		success: function(response) {
-			console.log(response);
 			
 			if(response.status)
 			{	
 				$.each(response.data, function(key, winner){
-					let duration = parseFloat(key / 10);
+					let duration = parseFloat(key/2.5);
 					let winnerTemplate = `
 						<li class="winner active" style="animation-delay: ${duration}s;">
 							<div class="department">${winner.Department}</div>
@@ -36,7 +35,14 @@ function startDrawinig()
 								<span class="name">${winner.Name}</span>
 							</div>
 						</li>`;
-						
+					
+					let offset = $('.winner-list').find('.winner').last().offset();
+					let pos = (offset && key >= 6) ? offset.top : 0;
+					
+					$('html, body').animate({ scrollTop:pos}, 'slow', function(winnerTemplate){
+						$('.winner-list').append(winnerTemplate);
+					});
+			
 					$('.winner-list').append(winnerTemplate);
 					$('.actionbar .right .quantity .winner-count').text(parseInt(key) + 1);
 				});
@@ -45,6 +51,7 @@ function startDrawinig()
 				console.error(response.msg);
 			
 			$('#startDrawingForm .btn-start').removeClass('loader').hide();
+			$('.btn-viewer').addClass('active');
 		},
         error: function(xhr, status, error) {
             console.error('Error:', error);

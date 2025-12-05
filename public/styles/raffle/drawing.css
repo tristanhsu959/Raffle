@@ -92,18 +92,27 @@ body .content-container .actionbar {
 }
 
 .btn-viewer {
-	position: absolute;
-	right: 0;
-	background-color: #ff6f00;
-	color: #fff;
-	width: 48px;
-	height: 48px;
-	border-radius: 2rem;
-	display: flex;
+	position: fixed;
+	right: 1.5rem;
+	bottom: 1.5rem;
+	width: 80px;
+	height: 80px;
+	border-radius: 4rem;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-	z-index: 66;
+	z-index: 77;
+	
+	.material-symbols-outlined {
+		font-size: 3rem;
+		color: #fff;
+	}
+	&.active {
+		display: flex;
+		border: 1px solid #ff6f00;
+		background-color: #ff6f00;
+	}
 }
 
 .content-wrapper {

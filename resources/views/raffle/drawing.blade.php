@@ -31,7 +31,7 @@
 	</div>
 </form>
 
-<a href="http://google.com.tw" class="btn btn-viewer">
+<a href="{{ route('winnerList', ['configKey' => $prizeSetting['configKey']]) }}" class="btn btn-viewer">
 	<span class="material-symbols-outlined">view_carousel</span>
 </a>
 
