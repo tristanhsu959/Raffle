@@ -27,10 +27,10 @@ body .content-container .actionbar {
 		font-family: 'Orbitron';
 		font-size: 2rem;
 		font-weight: bold;
-		color: #0d47a1;
+		color: #e1bee7;
 		
 		.winner-count {
-			color: #f44336;
+			color: #dcedc8;
 		}
 	}
 }
@@ -103,7 +103,7 @@ body .content-container .actionbar {
 						div {
 							margin-right: 2rem;
 							font-size: 4rem;
-							color: #84ffff;
+							color: #80deea;
 						}
 					}
 				}

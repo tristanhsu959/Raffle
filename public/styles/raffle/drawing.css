@@ -8,7 +8,7 @@ body .content-container .actionbar {
 		
 		div {
 			font-size: 1.5rem;
-			color: #f44336;
+			color: #212121;
 			margin: 0;
 			
 			&.title {
@@ -35,7 +35,7 @@ body .content-container .actionbar {
 		/* z-index: 10; */
 		
 		.winner-count {
-			color: #03a9f4;
+			color: #81d4fa;
 		}
 		&:before {
 			content: '抽獎名額'; /*抽獎名額*/
@@ -45,7 +45,7 @@ body .content-container .actionbar {
 			line-height: 1;
 			letter-spacing: normal;
 			margin-bottom: .25rem;
-			color: #212121;
+			color: #fafafa;
 			transform: translateY(.75rem);
 		}
 		
@@ -213,6 +213,7 @@ body .content-container .actionbar {
 				flex-direction: column;
 				justify-content: center;
 				padding: .5rem 1rem;
+				background-color: #e0e0e0;
 				
 				span {
 					text-align: center;

@@ -9,7 +9,7 @@ body {
 	
 	.content-container {
 		/* background: linear-gradient(180deg, var(--primary-bg-color), #fff, #fff, #fff, #fff, #fff, #fff, #fff); */
-		
+		background: linear-gradient(to bottom, var(--primary-bg-color), var(--primary-bg-color), var(--primary-light-bg-color));
 		/* Left Center Right */
 		.actionbar {
 			position: sticky;
@@ -24,8 +24,8 @@ body {
 			/* background: linear-gradient(180deg, var(--primary-bg-color), var(--primary-bg-color), #fff, #fff); */
 			/* background-color: #fafafa; */
 			/* background-color: var(--secondary-bg-color); */
-			border-bottom: 1px solid #eceff1;
-			background-color: #fff;
+			/* border-bottom: 1px solid #eceff1; */
+			background-color: #ff3b1e;
 			z-index: 99;
 			
 			.left, .right {

@@ -1,7 +1,7 @@
 /* Home Style */
 
 body .content-container {
-	background: linear-gradient(135deg, var(--primary-bg-color), var(--primary-bg-color), var(--primary-light-bg-color));
+	background: linear-gradient(to bottom, var(--primary-bg-color), var(--primary-bg-color), var(--primary-light-bg-color));
 	
 	.actionbar {
 		background: transparent;
